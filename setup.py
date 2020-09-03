@@ -11,5 +11,12 @@ setuptools.setup(
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-    ]
+    ],
+    install_requires=[
+        "fuzzywuzzy", "numpy", "opencv-python", "Pillow==6.2.2"
+    ],
+    extras_require={
+        "tf": ["tensorflow>=2.0,<2.1"],
+        "tf_gpu": ["tensorflow-gpu>=2.0,<2.1"],
+    }
 )

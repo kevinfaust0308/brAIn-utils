@@ -2,8 +2,6 @@ import numpy as np
 import cv2
 import time
 
-from Algorithmia.errors import AlgorithmException
-
 
 class TileExtractor:
     DEFAULT_MIN_NON_BLANK_AMT = 0.1
@@ -68,10 +66,10 @@ class TileExtractor:
         '''
 
         if not (0 <= min_non_blank_amt <= 1):
-            raise AlgorithmException("Minimum non-blank amount must be a percentage between 0.0 and 1.0")
+            raise Exception("Minimum non-blank amount must be a percentage between 0.0 and 1.0")
 
         if batch_size < 1:
-            raise AlgorithmException('Batch size must be at least 1')
+            raise Exception('Batch size must be at least 1')
 
         # initialization
         x = y = 0

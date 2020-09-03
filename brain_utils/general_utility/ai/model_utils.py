@@ -1,6 +1,5 @@
 import numpy as np
 import tensorflow.keras.backend as K
-from Algorithmia.errors import AlgorithmException
 from fuzzywuzzy import process, fuzz
 import logging
 
@@ -73,7 +72,7 @@ class ModelUtils:
         '''
 
         if len(layers) == 0:
-            raise AlgorithmException('No layers specified')
+            raise Exception('No layers specified')
 
         imgs = ModelUtils.prepare_images(imgs)
 

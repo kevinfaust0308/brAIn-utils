@@ -1,10 +1,8 @@
 import cv2
 import numpy as np
-from Algorithmia.errors import AlgorithmException
 
 
 class TileUtils:
-
 
     @staticmethod
     def add_texts_with_bg(img, texts):
@@ -41,7 +39,6 @@ class TileUtils:
 
             text_offset_y -= 80
 
-
     @staticmethod
     def create_image_vector_for_each_classes(final_classifications, tiles, classes, confs, max_tiles_per_row=3):
         '''
@@ -57,7 +54,7 @@ class TileUtils:
         '''
 
         if len(final_classifications) != len(set(final_classifications)):
-            raise AlgorithmException('Final classifications should be unique')
+            raise Exception('Final classifications should be unique')
 
         UNDEFINED_ANOMALY = 'Undefined Anomaly'
 
@@ -97,7 +94,6 @@ class TileUtils:
         res = TileUtils.make_image_vector_using_tiles(res, tiles_per_row=max_tiles_per_row, add_numbering=False)
         return res, chosen_confs
 
-
     @staticmethod
     def make_image_vector_using_tiles(tiles, tiles_per_row=3, add_numbering=False):
         '''
@@ -109,7 +105,7 @@ class TileUtils:
         '''
 
         if len(tiles) == 0:
-            raise AlgorithmException("No tiles given. Cannot make image vector")
+            raise Exception("No tiles given. Cannot make image vector")
 
         tile_size = tiles[0].shape[0]
 
@@ -144,7 +140,6 @@ class TileUtils:
 
         return new
 
-
     @staticmethod
     def add_border(a, thickness=0.05, color=(0, 0, 0)):
         '''
@@ -161,7 +156,7 @@ class TileUtils:
             return
 
         if c != 3:
-            raise AlgorithmException('Only RGB images supported')
+            raise Exception('Only RGB images supported')
 
         pixel_len = min(int(w * thickness), int(h * thickness))
 
@@ -178,7 +173,6 @@ class TileUtils:
                 for i in range(3):
                     a[j, :pixel_len, i] = color[i]
                     a[j, (w - pixel_len):, i] = color[i]
-
 
     @staticmethod
     def add_text(a, text, bottom_left_corner_of_text, color=(0, 0, 0), font_scale=1, thickness=2):

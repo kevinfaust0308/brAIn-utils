@@ -1,0 +1,1 @@
+This is a package for Algorithmia usage to avoid common code duplication.

@@ -1,6 +1,5 @@
 import pathlib
 from collections import namedtuple
-
 from PIL import Image
 import warnings
 
