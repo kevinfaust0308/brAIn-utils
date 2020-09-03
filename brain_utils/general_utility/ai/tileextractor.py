@@ -51,7 +51,7 @@ class TileExtractor:
 
         # in rgb form, when pixels are all equal, it is white or black or grey. get all the corresponding pixels whose
         # values are all similar to each other (using std dev)
-        return np.sum(np.std(tile, axis=2) < 3) / (tile.shape[0] * tile.shape[1])
+        return np.sum(np.std(tile, axis=2) < 4) / (tile.shape[0] * tile.shape[1])
 
 
     def iterate_tiles(self, min_non_blank_amt=0.0, batch_size=4, print_time=True):
