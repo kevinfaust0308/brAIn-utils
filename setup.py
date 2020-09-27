@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="brain_utils",
-    version="0.0.1",
+    version="0.0.2",
     author="Kevin Faust",
     author_email="kevin.faust@mail.utoronto.ca",
     url="https://github.com/kevinfaust0308/brAIn-utils",
