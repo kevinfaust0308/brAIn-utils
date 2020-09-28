@@ -194,6 +194,115 @@ class Config_Clinical_Trials_OV:
         setup_config(self)
 
 
+class Config_80_Class_Blank_Filter:
+
+    def __init__(self):
+        self.type = 'brain'
+        self.folder_name = '80_class_blank_filter'
+
+        self.mpp = 0.5040
+        self.tile_size = 1024
+        self.model_type = 'VGG19'
+        self.deprecated_model_type = True
+
+        self.lesion_color = 'brown'
+        self.non_lesion_colormaps = {
+            'Salivary Gland': 'green',
+            'Acute Hematoma': 'red',
+            'Crush Artifact': 'yellow',
+            'Blank': 'white',
+            'White': 'blue',
+            'Gray': 'grey',
+            'Muscle': 'purple',
+            'Bone Marrow': 'cyan',
+            'Necrosis': 'magenta',
+            'Surgical': 'pink',
+            'Spinal Disc': 'brown',
+            'Dura': 'beige',
+            'Cerebellum': 'orange',
+            'Lymph Node': 'black'
+        }
+
+        self.classes = [
+            'Abscess',
+            'Salivary Gland',
+            'Acute Hematoma',
+            'Squamous Cell Carcinoma',
+            'Choroid Plexus Papilloma',
+            'Papillary Craniopharyngioma',
+            'Adamantinomatous Craniopharyngioma',
+            'Crush Artifact',
+            'Lymphoma',
+            'Atypical Meningioma',
+            'Blank',
+            'White',
+            'Chondrosarcoma',
+            'Chronic Hematoma',
+            'Clear Cell Renal Cell Carcinoma',
+            'Gray',
+            'DNET',
+            'Chordoma',
+            'Ependymoma',
+            'Muscle',
+            'Adipose',
+            'Ganglioglioma',
+            'PilocyticAstrocytoma',
+            'Diffuse Astrocytoma, IDH-mut',
+            'Diffuse Astrocytoma, IDH-WT',
+            'Anaplastic Astrocytoma, IDH-mut',
+            'Anaplastic Astrocytoma, IDH-WT',
+            'Diffuse Oligodendroglioma, IDH-mut, 1p19-codel',
+            'Anaplastic Oligodendroglioma, IDH-mut, 1p19-codel',
+            'Glioblastoma, IDH-wt',
+            'Glioblastoma, IDH-mut',
+            'Anaplastic Meningioma',
+            'Angiomatous Meningioma',
+            'Chordoid Meningioma',
+            'ClearCellMeningioma',
+            'Fibrous Meningioma',
+            'Meningothelial Meningioma',
+            'Microcystic Meningioma',
+            'Papillary Meningioma',
+            'Psammomatous Meningioma',
+            'Secretory Meningioma',
+            'Transitional Meningioma',
+            'Bone Marrow',
+            'Hemangiopericytoma',
+            'Liposarcoma - Grade III',
+            'Liposarcoma - High Grade',
+            'Liposarcoma - Myxoid',
+            'Lung Adenocarcinoma',
+            'Medulloblastoma',
+            'Breast Adenocarcinoma',
+            'Colorectal Adenocarcinoma',
+            'Prostate Adenocarcinoma',
+            'MPNST',
+            'Necrosis',
+            'Neurocytoma',
+            'Neurofibroma',
+            'Surgical',
+            'Paraganglioma',
+            'Pituitary Adenoma',
+            'Plasmacytoma',
+            'Spinal Disc',
+            'Schwannoma',
+            'Dura',
+            'Sarcoma - Ewing',
+            'Sarcoma - High Grade',
+            'Small Cell Carcinoma',
+            'Cerebellum',
+            'Hemangioblastoma',
+            'Subependymoma',
+            'Myxopapillary Ependymoma',
+            'Epidermoid Cyst',
+            'Malignant Melanoma',
+            'Radiation Necrosis',
+            'Lymph Node'
+        ]
+
+        setup_config(self)
+
+
 ########################################################################################################################
 
 
