@@ -2,7 +2,7 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 
-def send_email(api_key, email_to, s3_paths, display_user=False):
+def send_email(api_key, email_to, s3_paths, display_user=False, error_log=None):
     '''
     Sends email to the specified email address
 
@@ -26,6 +26,9 @@ def send_email(api_key, email_to, s3_paths, display_user=False):
             body += "<p>{}</p>".format(name)
         body += "<p>We apologize for this inconvenience. " \
                 "<a href='www.pathologyreports.ai'>Please try again</a></p>"
+
+    if error_log is not None:
+        body += '<p>{}</p>'.format(str(error_log))
 
     if display_user:
         body += '<p>Submitted by: {}</p>'.format(email_to)
