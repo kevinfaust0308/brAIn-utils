@@ -13,7 +13,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
-        "fuzzywuzzy", "numpy", "opencv-python", "Pillow==6.2.2"
+        "fuzzywuzzy", "numpy", "matplotlib", "opencv-python", "Pillow==6.2.2", "algorithmia", "seaborn", "sendgrid"
     ],
     extras_require={
         "tf": ["tensorflow>=2.0,<2.1"],

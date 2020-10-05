@@ -3,6 +3,7 @@ import os
 import zipfile
 from brain_utils.general_utility import unique_colors
 from Algorithmia.errors import AlgorithmException
+import seaborn as sns
 
 from . import settings
 
@@ -301,6 +302,52 @@ class Config_80_Class_Blank_Filter:
         ]
 
         setup_config(self)
+
+    class Config_MIB:
+
+        def __init__(self):
+            self.type = 'brain'
+            self.folder_name = 'mib'
+
+            self.mpp = 0.5040
+            self.tile_size = 1024
+            self.model_type = 'VGG19'
+            # algorithmia giving weird errors when i dont use .h5 format
+            self.deprecated_model_type = True
+
+            self.classes = [
+                '0-1',
+                '11-20',
+                '2-4',
+                '21-40',
+                '41-60',
+                '5-10',
+                '61-100',
+                'Blank',
+            ]
+
+            # color maps. we supply the BGR values directly
+            # light to dark red colors and white for blank
+            # we do the following because colorpalette is sequential but our class points above is not so we have to reorder
+            # the palette so that intensity of red matches percentage
+            classes_no_blank = self.classes[:-1]
+
+            # import matplotlib.pyplot as plt
+            # cm = plt.get_cmap('Reds')
+            # colors = [cm(i / len(classes_no_blank))[:-1] for i in range(len(classes_no_blank))]
+
+            colors = sns.color_palette("coolwarm", len(classes_no_blank) + 1)
+            colors.pop(3)  # removing the grey-ish color
+
+            # colors = sns.color_palette("Reds", len(classes_no_blank))
+
+            ideal = dict(zip(
+                sorted(classes_no_blank, key=lambda x: int(x.split('-')[0])),
+                colors
+            ))
+            self.colormaps = [ideal[c][::-1] for c in classes_no_blank] + [(1.0, 1.0, 1.0)]
+
+            setup_config(self)
 
 
 ########################################################################################################################
