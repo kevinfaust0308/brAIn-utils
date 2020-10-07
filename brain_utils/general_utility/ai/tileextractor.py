@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 import time
-
+import logging
 
 class TileExtractor:
     DEFAULT_MIN_NON_BLANK_AMT = 0.1
@@ -117,7 +117,7 @@ class TileExtractor:
                 y += tile_size
 
                 if print_time:
-                    print("{:0.2f}% ({}/{} tiles) in {:0.2f}s".format(
+                    logging.info("{:0.2f}% ({}/{} tiles) in {:0.2f}s".format(
                         (y / tile_size) / rows * 100,  # percent of rows complete
                         (y / tile_size) * cols,  # number of rows complete * tiles per row
                         tot_tiles,

@@ -20,7 +20,7 @@ class Config_Autotiler:
         else:
             raise AlgorithmException("Mode {} unknown".format(mode))
 
-        print("\n***\nUsing {} model ({}) as autotiler\n***\n".format(mode, autotile_configs.identity))
+        logging.log("\n***\nUsing {} model ({}) as autotiler\n***\n".format(mode, autotile_configs.identity))
 
         # add the class configs properties to this autotiler config object
         self.__dict__.update(autotile_configs.__dict__)

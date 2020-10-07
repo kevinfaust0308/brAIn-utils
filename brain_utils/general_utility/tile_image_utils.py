@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import logging
 
 
 class TileUtils:
@@ -60,7 +61,7 @@ class TileUtils:
 
         final_classifications = list(final_classifications)
         if len(final_classifications) > 1 and UNDEFINED_ANOMALY in final_classifications:
-            print(
+            logging.warn(
                 f'Final classifications: contains undefined and regular classes ({final_classifications})..removing undefined for image vector')
             final_classifications.remove(UNDEFINED_ANOMALY)
 

@@ -1,4 +1,5 @@
 import time
+import logging
 
 
 class print_time:
@@ -7,7 +8,7 @@ class print_time:
         self.exit_msg = exit_msg if obj is None else "Successfully {}!".format(obj)
 
     def __enter__(self):
-        print("\n" + self.enter_msg, flush=True)
+        logging.info(self.enter_msg)
         self.time = time.time()
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -16,4 +17,4 @@ class print_time:
             res = '{} minutes and {} seconds'.format(int(int(tot) / 60), int(tot) % 60)
         else:
             res = '{} seconds'.format(int(tot))
-        print(self.exit_msg, res + "\n", flush=True)
+        logging.info(self.exit_msg + ': ' + res)

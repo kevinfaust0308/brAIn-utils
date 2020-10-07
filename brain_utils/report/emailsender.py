@@ -1,5 +1,6 @@
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
+import logging
 
 
 def send_email(api_key, email_to, s3_paths, display_user=False, error_log=None):
@@ -43,8 +44,8 @@ def send_email(api_key, email_to, s3_paths, display_user=False, error_log=None):
     try:
         sg = SendGridAPIClient(api_key)
         response = sg.send(message)
-        print(response.status_code)
-        print(response.body)
-        print(response.headers)
+        logging.debug(response.status_code)
+        logging.debug(response.body)
+        logging.debug(response.headers)
     except Exception as e:
-        print(e.message)
+        logging.error(e.message)
