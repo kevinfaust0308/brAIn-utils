@@ -1,4 +1,5 @@
 from Algorithmia.errors import AlgorithmException
+import logging
 
 
 class Config_Autotiler:
@@ -20,7 +21,7 @@ class Config_Autotiler:
         else:
             raise AlgorithmException("Mode {} unknown".format(mode))
 
-        logging.log("\n***\nUsing {} model ({}) as autotiler\n***\n".format(mode, autotile_configs.identity))
+        logging.debug("*** - Using {} model ({}) as autotiler - ***".format(mode, autotile_configs.identity))
 
         # add the class configs properties to this autotiler config object
         self.__dict__.update(autotile_configs.__dict__)
