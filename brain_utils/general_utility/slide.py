@@ -12,7 +12,7 @@ class Slide:
     '''
 
 
-    def __init__(self, path, img_requirements=None):
+    def __init__(self, path, img_requirements=None, stain_type='Unknown'):
         '''
         Creates a slide object with all possible data of the slide extracted
 
@@ -23,6 +23,7 @@ class Slide:
         self.path = path
         self.name = pathlib.Path(path).stem
         self.image_type = pathlib.Path(path).suffix
+        self.stain_type = stain_type
 
         i = Image.open(path)
         self.width, self.height = i.width, i.height
