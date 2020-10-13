@@ -16,7 +16,7 @@ setuptools.setup(
         "fuzzywuzzy", "numpy", "matplotlib", "opencv-python", "Pillow==6.2.2", "algorithmia", "seaborn", "sendgrid"
     ],
     extras_require={
-        "tf": ["tensorflow>=2.0,<2.1"],
-        "tf_gpu": ["tensorflow-gpu>=2.0,<2.1"],
+        "tf": ["tensorflow"],
+        "tf_gpu": ["tensorflow-gpu"],
     }
 )
